@@ -93,6 +93,9 @@ static void update_time() {
   
   // Random, change every 2 hours
   if (RandomFlag) {
+    // Build a better rand()
+    srand((unsigned) time(&temp));
+    
     if ((((tick_time->tm_hour) % 2) == 0) && (tick_time->tm_min == 0)) {
       int r = rand() % NBR_OF_CITIES;
       strcpy(citystr, citylist[r]);
