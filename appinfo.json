@@ -12,6 +12,16 @@
     "resources": {
         "media": [
             {
+                "file": "images/singapore.png",
+                "name": "SINGAPORE_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/tokyo.png",
+                "name": "TOKYO_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "file": "images/boston.png",
                 "name": "BOSTON_BACKGROUND",
                 "type": "png"
@@ -24,11 +34,6 @@
             {
                 "file": "images/seattle.png",
                 "name": "SEATTLE_BACKGROUND",
-                "type": "png"
-            },
-            {
-                "file": "images/tokyo2.png",
-                "name": "TOKYO_BACKGROUND",
                 "type": "png"
             },
             {

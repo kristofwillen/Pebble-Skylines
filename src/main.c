@@ -7,8 +7,8 @@ static TextLayer *s_time_layer, *s_city_layer, *s_date_layer, *s_battery_layer;
 static InverterLayer *s_night_layer;
 static BitmapLayer *s_background_layer, *s_star_layer;
 static Layer *s_line_layer;
-bool RandomFlag = false;
-char key_random[] = "0";
+bool RandomFlag = true;
+char key_random[] = "1";
 
 static GFont s_time_font;
 static GBitmap *s_background_bitmap, *s_star_bitmap;
@@ -16,8 +16,8 @@ static char s_date_buffer[10];
 char citystr[] = "_SAN_FRANCISCO_";
 static int backgr_res;
 
-const int NBR_OF_CITIES = 17;
-char *citylist[17] = {"Barcelona", "Boston", "Brussels", "Chicago", "Istanbul", "Kiev", "London", "Moscow", "New York", "Paris", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Sydney", "Tokyo"};
+const int NBR_OF_CITIES = 18;
+char *citylist[18] = {"Barcelona", "Boston", "Brussels", "Chicago", "Istanbul", "Kiev", "London", "Moscow", "New York", "Paris", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Singapore", "Sydney", "Tokyo"};
 
 static void battery_handler(BatteryChargeState new_state) {
   // Write to buffer and display
@@ -51,6 +51,7 @@ static int resource_background(char citystring[]) {
   else if (strcmp(citystr, "Moscow")        == 0) { return RESOURCE_ID_MOSCOW_BACKGROUND;   } 
   else if (strcmp(citystr, "Seattle")       == 0) { return RESOURCE_ID_SEATTLE_BACKGROUND;  } 
   else if (strcmp(citystr, "Chicago")       == 0) { return RESOURCE_ID_CHICAGO_BACKGROUND;  } 
+  else if (strcmp(citystr, "Singapore")     == 0) { return RESOURCE_ID_SINGAPORE_BACKGROUND;} 
   else {
     // fallback config if invalid KEY_CITY config
     strcpy(citystr,"Prague");
@@ -119,7 +120,7 @@ static void in_recv_handler(DictionaryIterator *iterator, void *context) {
 
     case KEY_RANDOM:
       APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG]   KEY_RANDOM=%s", t->value->cstring);
-      if (strcmp(t->value->cstring, "1") == 0) { RandomFlag = true; }
+      if (strcmp(t->value->cstring, "0") == 0) { RandomFlag = false; }
       break;
      
     case KEY_CITY:
@@ -132,13 +133,10 @@ static void in_recv_handler(DictionaryIterator *iterator, void *context) {
       bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
       persist_write_string(KEY_CITY,citystr);
       break;
-    
-     //default:
-    //  strcpy(citystr,"Prague");
-    //  backgr_res = resource_background(citystr);
-    //  APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG] No suitable KEY_CITY found, reverting to Prague as default...");
    }
+    
    t = dict_read_next(iterator);
+    
   }
 }
 
@@ -163,7 +161,7 @@ static void main_window_load(Window *window) {
   if (persist_exists(KEY_RANDOM)) {
     persist_read_string(KEY_RANDOM, key_random, sizeof(key_random));
     APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG] persistent KEY_RANDOM found:%s ", key_random);
-    RandomFlag = true;
+    if (strcmp(key_random, "0") == 0) { RandomFlag = false; }
   }
   backgr_res = resource_background(citystr);  
   s_background_bitmap = gbitmap_create_with_resource(backgr_res);
@@ -288,7 +286,7 @@ static void deinit() {
   // Write persistent data
   APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG] Writing persistent data...");
   persist_write_string(KEY_CITY, citystr);
-  if (RandomFlag) { strcpy(key_random, "1"); }
+  if (! RandomFlag) { strcpy(key_random, "0"); }
   persist_write_string(KEY_RANDOM, key_random);
   
   // Destroy Window
