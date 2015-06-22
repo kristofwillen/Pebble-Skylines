@@ -1,0 +1,132 @@
+{
+    "appKeys": {
+        "KEY_CITY": 0,
+        "KEY_RANDOM": 1
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "@KristofWillen",
+    "longName": "Skylines",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/boston.png",
+                "name": "BOSTON_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/chicago.png",
+                "name": "CHICAGO_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/seattle.png",
+                "name": "SEATTLE_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/tokyo2.png",
+                "name": "TOKYO_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/prague.png",
+                "name": "PRAGUE_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/paris.png",
+                "name": "PARIS_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/london.png",
+                "name": "LONDON_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/brussels.png",
+                "name": "BRUSSELS_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/instanbul.png",
+                "name": "ISTANBUL_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/moscow.png",
+                "name": "MOSCOW_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/barca.png",
+                "name": "BARCA_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/rome2.png",
+                "name": "ROME_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/kiev.png",
+                "name": "KIEV_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/slouis.png",
+                "name": "SLOUIS_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/stars.png",
+                "name": "BACKGROUND_NIGHT_STARS",
+                "type": "png"
+            },
+            {
+                "file": "images/frisco.png",
+                "name": "FRISCO_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/sydney.png",
+                "name": "SYDNEY_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/newyork.png",
+                "name": "NEWYORK_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/skylines_icon.png",
+                "menuIcon": true,
+                "name": "IMAGE_APP_ICON",
+                "type": "png"
+            },
+            {
+                "characterRegex": "[a-z]",
+                "file": "fonts/typeone.ttf",
+                "name": "FONT_TYPEONE_SQUARE_12",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[0-9:.]",
+                "file": "fonts/pocket_calcuatlor_tt.ttf",
+                "name": "FONT_POCKET_CALCULATOR_SIZE_54",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "Skylines",
+    "uuid": "32e36200-f9f4-44fd-8d4c-ccc347b67ef1",
+    "versionCode": 1,
+    "versionLabel": "3.1",
+    "watchapp": {
+        "watchface": true
+    }
+}
