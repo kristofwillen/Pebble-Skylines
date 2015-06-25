@@ -12,6 +12,11 @@
     "resources": {
         "media": [
             {
+                "file": "images/dallas.png",
+                "name": "DALLAS_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "file": "images/dublin.png",
                 "name": "DUBLIN_BACKGROUND",
                 "type": "png"
@@ -145,7 +150,7 @@
     "shortName": "Skylines",
     "uuid": "32e36200-f9f4-44fd-8d4c-ccc347b67ef1",
     "versionCode": 1,
-    "versionLabel": "3.3",
+    "versionLabel": "3.4",
     "watchapp": {
         "watchface": true
     }

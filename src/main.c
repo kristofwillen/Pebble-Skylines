@@ -16,8 +16,8 @@ static char s_date_buffer[10];
 char citystr[] = "_SAN_FRANCISCO_";
 static int backgr_res;
 
-const int NBR_OF_CITIES = 21;
-char *citylist[21] = {"Barcelona", "Berlin", "Boston", "Brussels", "Chicago", "Dublin", "Istanbul", "Kiev", "London", "Moscow", "New York", "Paris", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", "Tokyo"};
+const int NBR_OF_CITIES = 22;
+char *citylist[22] = {"Barcelona", "Berlin", "Boston", "Brussels", "Chicago", "Dallas", "Dublin", "Istanbul", "Kiev", "London", "Moscow", "New York", "Paris", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", "Tokyo"};
 
 static void battery_handler(BatteryChargeState new_state) {
   // Write to buffer and display
@@ -55,6 +55,7 @@ static int resource_background(char citystring[]) {
   else if (strcmp(citystr, "Berlin")        == 0) { return RESOURCE_ID_BERLIN_BACKGROUND;   } 
   else if (strcmp(citystr, "Dublin")        == 0) { return RESOURCE_ID_DUBLIN_BACKGROUND;   } 
   else if (strcmp(citystr, "Shangai")       == 0) { return RESOURCE_ID_SHANGAI_BACKGROUND;  } 
+  else if (strcmp(citystr, "Dallas")        == 0) { return RESOURCE_ID_DALLAS_BACKGROUND;   } 
   else {
     // fallback config if invalid KEY_CITY config
     strcpy(citystr,"Prague");
@@ -100,7 +101,7 @@ static void update_time() {
     // Build a better rand()
     srand((unsigned) time(&temp));
     
-    if ((((tick_time->tm_hour) % 2) == 0) && (tick_time->tm_min == 0)) {
+    if ((((tick_time->tm_hour) % 2) != 0) && (tick_time->tm_min == 0)) {
       int r = rand() % NBR_OF_CITIES;
       strcpy(citystr, citylist[r]);
       backgr_res = resource_background(citystr);
