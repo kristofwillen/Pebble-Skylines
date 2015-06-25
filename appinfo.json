@@ -12,6 +12,21 @@
     "resources": {
         "media": [
             {
+                "file": "images/dublin.png",
+                "name": "DUBLIN_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/shangai.png",
+                "name": "SHANGAI_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/berlin.png",
+                "name": "BERLIN_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "file": "images/singapore.png",
                 "name": "SINGAPORE_BACKGROUND",
                 "type": "png"
@@ -130,7 +145,7 @@
     "shortName": "Skylines",
     "uuid": "32e36200-f9f4-44fd-8d4c-ccc347b67ef1",
     "versionCode": 1,
-    "versionLabel": "3.2",
+    "versionLabel": "3.3",
     "watchapp": {
         "watchface": true
     }
