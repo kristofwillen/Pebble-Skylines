@@ -12,6 +12,31 @@
     "resources": {
         "media": [
             {
+                "file": "images/delhi.png",
+                "name": "DELHI_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/pisa.png",
+                "name": "PISA_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/cairo.png",
+                "name": "CAIRO_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/athens.png",
+                "name": "ATHENS_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/kyoto.png",
+                "name": "KYOTO_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "file": "images/dallas.png",
                 "name": "DALLAS_BACKGROUND",
                 "type": "png"

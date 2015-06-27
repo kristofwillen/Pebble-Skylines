@@ -16,8 +16,8 @@ static char s_date_buffer[10];
 char citystr[] = "_SAN_FRANCISCO_";
 static int backgr_res;
 
-const int NBR_OF_CITIES = 22;
-char *citylist[22] = {"Barcelona", "Berlin", "Boston", "Brussels", "Chicago", "Dallas", "Dublin", "Istanbul", "Kiev", "London", "Moscow", "New York", "Paris", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", "Tokyo"};
+const int NBR_OF_CITIES = 27;
+char *citylist[27] = {"Athens", "Barcelona", "Berlin", "Boston", "Brussels", "Cairo", "Chicago", "Dallas", "Delhi", "Dublin", "Istanbul", "Kiev", "Kyoto", "London", "Moscow", "New York", "Paris", "Pisa", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", "Tokyo"};
 
 static void battery_handler(BatteryChargeState new_state) {
   // Write to buffer and display
@@ -56,6 +56,11 @@ static int resource_background(char citystring[]) {
   else if (strcmp(citystr, "Dublin")        == 0) { return RESOURCE_ID_DUBLIN_BACKGROUND;   } 
   else if (strcmp(citystr, "Shangai")       == 0) { return RESOURCE_ID_SHANGAI_BACKGROUND;  } 
   else if (strcmp(citystr, "Dallas")        == 0) { return RESOURCE_ID_DALLAS_BACKGROUND;   } 
+  else if (strcmp(citystr, "Kyoto")         == 0) { return RESOURCE_ID_KYOTO_BACKGROUND;    }
+  else if (strcmp(citystr, "Pisa")          == 0) { return RESOURCE_ID_PISA_BACKGROUND;     } 
+  else if (strcmp(citystr, "Cairo")         == 0) { return RESOURCE_ID_CAIRO_BACKGROUND;    } 
+  else if (strcmp(citystr, "Delhi")         == 0) { return RESOURCE_ID_DELHI_BACKGROUND;    } 
+  else if (strcmp(citystr, "Athens")        == 0) { return RESOURCE_ID_ATHENS_BACKGROUND;   }  
   else {
     // fallback config if invalid KEY_CITY config
     strcpy(citystr,"Prague");
