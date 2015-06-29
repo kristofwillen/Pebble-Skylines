@@ -16,8 +16,8 @@ static char s_date_buffer[10];
 char citystr[] = "_SAN_FRANCISCO_";
 static int backgr_res;
 
-const int NBR_OF_CITIES = 27;
-char *citylist[27] = {"Athens", "Barcelona", "Berlin", "Boston", "Brussels", "Cairo", "Chicago", "Dallas", "Delhi", "Dublin", "Istanbul", "Kiev", "Kyoto", "London", "Moscow", "New York", "Paris", "Pisa", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", "Tokyo"};
+const int NBR_OF_CITIES = 29;
+char *citylist[29] = {"Athens", "Barcelona", "Berlin", "Boston", "Brussels", "Budapest", "Cairo", "Chicago", "Dallas", "Delhi", "Dublin", "Istanbul", "Kiev", "Kyoto", "London", "Moscow", "New York", "Paris", "Pisa", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", "Tokyo", "Washington"};
 
 static void battery_handler(BatteryChargeState new_state) {
   // Write to buffer and display
@@ -34,33 +34,35 @@ void drawtimeline(Layer *layer, GContext *ctx) {
 }
 
 static int resource_background(char citystring[]) {
-  if (strcmp(citystr, "Paris")              == 0) { return RESOURCE_ID_PARIS_BACKGROUND;    }
-  else if (strcmp(citystr, "London")        == 0) { return RESOURCE_ID_LONDON_BACKGROUND;   }
-  else if (strcmp(citystr, "Boston")        == 0) { return RESOURCE_ID_BOSTON_BACKGROUND;   } 
-  else if (strcmp(citystr, "Brussels")      == 0) { return RESOURCE_ID_BRUSSELS_BACKGROUND; }  
-  else if (strcmp(citystr, "Prague")        == 0) { return RESOURCE_ID_PRAGUE_BACKGROUND;   } 
-  else if (strcmp(citystr, "New York")      == 0) { return RESOURCE_ID_NEWYORK_BACKGROUND;  }
-  else if (strcmp(citystr, "Sydney")        == 0) { return RESOURCE_ID_SYDNEY_BACKGROUND;   }
-  else if (strcmp(citystr, "San Francisco") == 0) { return RESOURCE_ID_FRISCO_BACKGROUND;   } 
-  else if (strcmp(citystr, "Tokyo")         == 0) { return RESOURCE_ID_TOKYO_BACKGROUND;    } 
-  else if (strcmp(citystr, "Rome")          == 0) { return RESOURCE_ID_ROME_BACKGROUND;     } 
-  else if (strcmp(citystr, "Saint Louis")   == 0) { return RESOURCE_ID_SLOUIS_BACKGROUND;   } 
-  else if (strcmp(citystr, "Barcelona")     == 0) { return RESOURCE_ID_BARCA_BACKGROUND;    } 
-  else if (strcmp(citystr, "Kiev")          == 0) { return RESOURCE_ID_KIEV_BACKGROUND;     } 
-  else if (strcmp(citystr, "Istanbul")      == 0) { return RESOURCE_ID_ISTANBUL_BACKGROUND; } 
-  else if (strcmp(citystr, "Moscow")        == 0) { return RESOURCE_ID_MOSCOW_BACKGROUND;   } 
-  else if (strcmp(citystr, "Seattle")       == 0) { return RESOURCE_ID_SEATTLE_BACKGROUND;  } 
-  else if (strcmp(citystr, "Chicago")       == 0) { return RESOURCE_ID_CHICAGO_BACKGROUND;  } 
-  else if (strcmp(citystr, "Singapore")     == 0) { return RESOURCE_ID_SINGAPORE_BACKGROUND;} 
-  else if (strcmp(citystr, "Berlin")        == 0) { return RESOURCE_ID_BERLIN_BACKGROUND;   } 
-  else if (strcmp(citystr, "Dublin")        == 0) { return RESOURCE_ID_DUBLIN_BACKGROUND;   } 
-  else if (strcmp(citystr, "Shangai")       == 0) { return RESOURCE_ID_SHANGAI_BACKGROUND;  } 
-  else if (strcmp(citystr, "Dallas")        == 0) { return RESOURCE_ID_DALLAS_BACKGROUND;   } 
-  else if (strcmp(citystr, "Kyoto")         == 0) { return RESOURCE_ID_KYOTO_BACKGROUND;    }
-  else if (strcmp(citystr, "Pisa")          == 0) { return RESOURCE_ID_PISA_BACKGROUND;     } 
-  else if (strcmp(citystr, "Cairo")         == 0) { return RESOURCE_ID_CAIRO_BACKGROUND;    } 
-  else if (strcmp(citystr, "Delhi")         == 0) { return RESOURCE_ID_DELHI_BACKGROUND;    } 
-  else if (strcmp(citystr, "Athens")        == 0) { return RESOURCE_ID_ATHENS_BACKGROUND;   }  
+  if (strcmp(citystr, "Paris")              == 0) { return RESOURCE_ID_PARIS_BACKGROUND;     }
+  else if (strcmp(citystr, "London")        == 0) { return RESOURCE_ID_LONDON_BACKGROUND;    }
+  else if (strcmp(citystr, "Boston")        == 0) { return RESOURCE_ID_BOSTON_BACKGROUND;    } 
+  else if (strcmp(citystr, "Brussels")      == 0) { return RESOURCE_ID_BRUSSELS_BACKGROUND;  }  
+  else if (strcmp(citystr, "Prague")        == 0) { return RESOURCE_ID_PRAGUE_BACKGROUND;    } 
+  else if (strcmp(citystr, "New York")      == 0) { return RESOURCE_ID_NEWYORK_BACKGROUND;   }
+  else if (strcmp(citystr, "Sydney")        == 0) { return RESOURCE_ID_SYDNEY_BACKGROUND;    }
+  else if (strcmp(citystr, "San Francisco") == 0) { return RESOURCE_ID_FRISCO_BACKGROUND;    } 
+  else if (strcmp(citystr, "Tokyo")         == 0) { return RESOURCE_ID_TOKYO_BACKGROUND;     } 
+  else if (strcmp(citystr, "Rome")          == 0) { return RESOURCE_ID_ROME_BACKGROUND;      } 
+  else if (strcmp(citystr, "Saint Louis")   == 0) { return RESOURCE_ID_SLOUIS_BACKGROUND;    } 
+  else if (strcmp(citystr, "Barcelona")     == 0) { return RESOURCE_ID_BARCA_BACKGROUND;     } 
+  else if (strcmp(citystr, "Kiev")          == 0) { return RESOURCE_ID_KIEV_BACKGROUND;      } 
+  else if (strcmp(citystr, "Istanbul")      == 0) { return RESOURCE_ID_ISTANBUL_BACKGROUND;  } 
+  else if (strcmp(citystr, "Moscow")        == 0) { return RESOURCE_ID_MOSCOW_BACKGROUND;    } 
+  else if (strcmp(citystr, "Seattle")       == 0) { return RESOURCE_ID_SEATTLE_BACKGROUND;   } 
+  else if (strcmp(citystr, "Chicago")       == 0) { return RESOURCE_ID_CHICAGO_BACKGROUND;   } 
+  else if (strcmp(citystr, "Singapore")     == 0) { return RESOURCE_ID_SINGAPORE_BACKGROUND; } 
+  else if (strcmp(citystr, "Berlin")        == 0) { return RESOURCE_ID_BERLIN_BACKGROUND;    } 
+  else if (strcmp(citystr, "Dublin")        == 0) { return RESOURCE_ID_DUBLIN_BACKGROUND;    } 
+  else if (strcmp(citystr, "Shangai")       == 0) { return RESOURCE_ID_SHANGAI_BACKGROUND;   } 
+  else if (strcmp(citystr, "Dallas")        == 0) { return RESOURCE_ID_DALLAS_BACKGROUND;    } 
+  else if (strcmp(citystr, "Kyoto")         == 0) { return RESOURCE_ID_KYOTO_BACKGROUND;     }
+  else if (strcmp(citystr, "Pisa")          == 0) { return RESOURCE_ID_PISA_BACKGROUND;      } 
+  else if (strcmp(citystr, "Cairo")         == 0) { return RESOURCE_ID_CAIRO_BACKGROUND;     } 
+  else if (strcmp(citystr, "Delhi")         == 0) { return RESOURCE_ID_DELHI_BACKGROUND;     } 
+  else if (strcmp(citystr, "Athens")        == 0) { return RESOURCE_ID_ATHENS_BACKGROUND;    }
+  else if (strcmp(citystr, "Budapest")      == 0) { return RESOURCE_ID_BUDAPEST_BACKGROUND;  } 
+  else if (strcmp(citystr, "Washington")    == 0) { return RESOURCE_ID_WASHINGTON_BACKGROUND;}  
   else {
     // fallback config if invalid KEY_CITY config
     strcpy(citystr,"Prague");
