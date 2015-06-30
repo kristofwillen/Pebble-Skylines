@@ -17,7 +17,20 @@ char citystr[] = "_SAN_FRANCISCO_";
 static int backgr_res;
 
 const int NBR_OF_CITIES = 29;
-char *citylist[29] = {"Athens", "Barcelona", "Berlin", "Boston", "Brussels", "Budapest", "Cairo", "Chicago", "Dallas", "Delhi", "Dublin", "Istanbul", "Kiev", "Kyoto", "London", "Moscow", "New York", "Paris", "Pisa", "Prague", "Rome", "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", "Tokyo", "Washington"};
+char *citylist[29] = {"Athens", 
+                      "Barcelona", "Berlin", "Boston", "Brussels", "Budapest", 
+                      "Cairo", "Chicago", 
+                      "Dallas", "Delhi", "Dublin", 
+                      "Istanbul", 
+                      "Kiev", "Kyoto", 
+                      "London", 
+                      "Moscow", 
+                      "New York", 
+                      "Paris", "Pisa", "Prague", 
+                      "Rome", 
+                      "Saint-Louis", "San Francisco", "Seattle", "Shangai", "Singapore", "Sydney", 
+                      "Tokyo", 
+                      "Washington"};
 
 static void battery_handler(BatteryChargeState new_state) {
   // Write to buffer and display
