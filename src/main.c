@@ -144,7 +144,8 @@ static void in_recv_handler(DictionaryIterator *iterator, void *context) {
 
     case KEY_RANDOM:
       APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG]   KEY_RANDOM=%s", t->value->cstring);
-      if (strcmp(t->value->cstring, "0") == 0) { RandomFlag = false; }
+      if (strcmp(t->value->cstring, "0") == 0) { RandomFlag = false; APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG]  RandomFl = 1");}
+      else { RandomFlag = true; APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG] RandFlag = 1"); }
       break;
      
     case KEY_CITY:
@@ -185,7 +186,7 @@ static void main_window_load(Window *window) {
   if (persist_exists(KEY_RANDOM)) {
     persist_read_string(KEY_RANDOM, key_random, sizeof(key_random));
     APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG] persistent KEY_RANDOM found:%s ", key_random);
-    if (strcmp(key_random, "0") == 0) { RandomFlag = false; }
+    if (strcmp(key_random, "0") == 0) { RandomFlag = false; } else { RandomFlag = true; }
   }
   backgr_res = resource_background(citystr);  
   s_background_bitmap = gbitmap_create_with_resource(backgr_res);
@@ -310,7 +311,7 @@ static void deinit() {
   // Write persistent data
   APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG] Writing persistent data...");
   persist_write_string(KEY_CITY, citystr);
-  if (! RandomFlag) { strcpy(key_random, "0"); }
+  if (! RandomFlag) { strcpy(key_random, "0"); } else { strcpy(key_random, "1"); }
   persist_write_string(KEY_RANDOM, key_random);
   
   // Destroy Window
