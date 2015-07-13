@@ -12,6 +12,16 @@
     "resources": {
         "media": [
             {
+                "file": "images/brussels.png",
+                "name": "BRUSSELS_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/athens.png",
+                "name": "ATHENS_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "file": "images/washington.png",
                 "name": "WASHINGTON_BACKGROUND",
                 "type": "png"
@@ -19,11 +29,6 @@
             {
                 "file": "images/budapest.png",
                 "name": "BUDAPEST_BACKGROUND",
-                "type": "png"
-            },
-            {
-                "file": "images/brussels.png",
-                "name": "BRUSSELS_BACKGROUND",
                 "type": "png"
             },
             {
@@ -39,11 +44,6 @@
             {
                 "file": "images/cairo.png",
                 "name": "CAIRO_BACKGROUND",
-                "type": "png"
-            },
-            {
-                "file": "images/athens.png",
-                "name": "ATHENS_BACKGROUND",
                 "type": "png"
             },
             {
