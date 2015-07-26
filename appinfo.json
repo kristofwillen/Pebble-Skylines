@@ -12,6 +12,21 @@
     "resources": {
         "media": [
             {
+                "file": "images/atlantis.png",
+                "name": "ATLANTIS_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/dubai.png",
+                "name": "DUBAI_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/pisa.png",
+                "name": "PISA_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "file": "images/brussels.png",
                 "name": "BRUSSELS_BACKGROUND",
                 "type": "png"
@@ -34,11 +49,6 @@
             {
                 "file": "images/delhi.png",
                 "name": "DELHI_BACKGROUND",
-                "type": "png"
-            },
-            {
-                "file": "images/pisa.png",
-                "name": "PISA_BACKGROUND",
                 "type": "png"
             },
             {

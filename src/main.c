@@ -5,8 +5,9 @@
 static Window *s_main_window;
 static TextLayer *s_time_layer, *s_city_layer, *s_date_layer, *s_battery_layer;
 static InverterLayer *s_night_layer;
-static BitmapLayer *s_background_layer, *s_star_layer;
+static BitmapLayer *s_background_layer, *s_star_layer, *s_batterybar_layer;
 static Layer *s_line_layer;
+
 bool RandomFlag = true;
 char key_random[] = "1";
 
@@ -16,11 +17,11 @@ static char s_date_buffer[10];
 char citystr[] = "_SAN_FRANCISCO_";
 static int backgr_res;
 
-const int NBR_OF_CITIES = 29;
-char *citylist[29] = {"Athens", 
+const int NBR_OF_CITIES = 31;
+char *citylist[NBR_OF_CITIES] = {"Athens", "Atlantis",
                       "Barcelona", "Berlin", "Boston", "Brussels", "Budapest", 
                       "Cairo", "Chicago", 
-                      "Dallas", "Delhi", "Dublin", 
+                      "Dallas", "Delhi", "Dublin", "Dubai",
                       "Istanbul", 
                       "Kiev", "Kyoto", 
                       "London", 
@@ -37,6 +38,10 @@ static void battery_handler(BatteryChargeState new_state) {
   static char s_battery_buffer[32];
   snprintf(s_battery_buffer, sizeof(s_battery_buffer), "%d%% ", new_state.charge_percent);
   text_layer_set_text(s_battery_layer, s_battery_buffer);
+  bitmap_layer_destroy(s_batterybar_layer);
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "[DBUG] Battery level=%i", (int)new_state.charge_percent);
+  s_batterybar_layer = bitmap_layer_create(GRect(22,62,(int)new_state.charge_percent,2));
+  
 }
 
 
@@ -76,6 +81,8 @@ static int resource_background(char citystring[]) {
   else if (strcmp(citystr, "Athens")        == 0) { return RESOURCE_ID_ATHENS_BACKGROUND;    }
   else if (strcmp(citystr, "Budapest")      == 0) { return RESOURCE_ID_BUDAPEST_BACKGROUND;  } 
   else if (strcmp(citystr, "Washington")    == 0) { return RESOURCE_ID_WASHINGTON_BACKGROUND;}  
+  else if (strcmp(citystr, "Dubai")         == 0) { return RESOURCE_ID_DUBAI_BACKGROUND;     }  
+  else if (strcmp(citystr, "Atlantis")      == 0) { return RESOURCE_ID_ATLANTIS_BACKGROUND;  }    
   else {
     // fallback config if invalid KEY_CITY config
     strcpy(citystr,"Prague");
@@ -244,9 +251,13 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_battery_layer));
 
   //Draw line under time
-  s_line_layer = layer_create(GRect(22,62,102,1));
+  s_line_layer = layer_create(GRect(22,61,102,1));
   layer_add_child(window_get_root_layer(window), s_line_layer);
   layer_set_update_proc(s_line_layer,drawtimeline);
+  
+  // Battery bar
+  s_batterybar_layer = bitmap_layer_create(GRect(22,62,102,2));
+  layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_batterybar_layer));
   
   // Nightlayer
   s_star_layer = bitmap_layer_create(GRect(0,0,144,120));
