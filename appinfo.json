@@ -12,6 +12,11 @@
     "resources": {
         "media": [
             {
+                "file": "fonts/larabiefont free.ttf",
+                "name": "FONT_LARABIE_12",
+                "type": "font"
+            },
+            {
                 "file": "images/washington.png",
                 "name": "WASHINGTON_BACKGROUND",
                 "type": "png"
@@ -182,12 +187,6 @@
                 "menuIcon": true,
                 "name": "IMAGE_APP_ICON",
                 "type": "png"
-            },
-            {
-                "characterRegex": "[a-z]",
-                "file": "fonts/typeone.ttf",
-                "name": "FONT_TYPEONE_SQUARE_12",
-                "type": "font"
             }
         ]
     },
@@ -195,7 +194,7 @@
     "shortName": "Skylines",
     "uuid": "32e36200-f9f4-44fd-8d4c-ccc347b67ef1",
     "versionCode": 1,
-    "versionLabel": "3.7",
+    "versionLabel": "4.0",
     "watchapp": {
         "watchface": true
     }

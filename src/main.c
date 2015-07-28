@@ -12,7 +12,7 @@ static int batteryLevel = 100;
 bool RandomFlag = true;
 char key_random[] = "1";
 
-static GFont s_time_font;
+static GFont s_time_font, s_date_font, s_city_font;
 static GBitmap *s_background_bitmap, *s_star_bitmap;
 static char s_date_buffer[10];
 char citystr[] = "_SAN_FRANCISCO_";
@@ -228,14 +228,16 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
   
   //City
-  //s_city_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_TYPEONE_SQUARE_12));
-  text_layer_set_font(s_city_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
-  //text_layer_set_font(s_city_layer, s_time_font);
+  s_city_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_LARABIE_12));
+  //text_layer_set_font(s_city_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
+  text_layer_set_font(s_city_layer, s_city_font);
   text_layer_set_text_alignment(s_city_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_city_layer));
   
   //Date
-  text_layer_set_font(s_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
+  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_LARABIE_12));
+  text_layer_set_font(s_date_layer, s_date_font);
+  //text_layer_set_font(s_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
   
