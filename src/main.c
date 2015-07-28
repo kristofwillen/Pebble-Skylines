@@ -3,7 +3,7 @@
 #define KEY_RANDOM 1  
 
 static Window *s_main_window;
-static TextLayer *s_time_layer, *s_city_layer, *s_date_layer, *s_battery_layer;
+static TextLayer *s_time_layer, *s_city_layer, *s_date_layer;
 static InverterLayer *s_night_layer;
 static BitmapLayer *s_background_layer, *s_star_layer;
 static Layer *s_line_layer;
@@ -36,25 +36,16 @@ char *citylist[31] = {"Athens", "Atlantis",
 
 static void battery_handler(BatteryChargeState new_state) {
   
-  // Write to buffer and display
-  static char s_battery_buffer[32];
-  snprintf(s_battery_buffer, sizeof(s_battery_buffer), "%d%% ", new_state.charge_percent);
-  text_layer_set_text(s_battery_layer, s_battery_buffer);
   batteryLevel = (int)new_state.charge_percent;
 }
 
 
 void drawtimeline(Layer *layer, GContext *ctx) {
   
-  //graphics_context_set_stroke_color(ctx, GColorWhite);
-  //graphics_draw_line(ctx, GPoint(22,57), GPoint(122,57));
-  //graphics_draw_line(ctx, GPoint(22,58), GPoint(122,58));
-  
   graphics_context_set_stroke_color(ctx, GColorBlack);
   graphics_draw_line(ctx, GPoint(0,0), GPoint(108,0));
   graphics_context_set_fill_color(ctx, GColorBlack);
   graphics_fill_rect(ctx, GRect(0,1,batteryLevel,4), 0, GCornerNone);
-  
 }
 
 
@@ -211,15 +202,9 @@ static void main_window_load(Window *window) {
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorBlack);
   text_layer_set_text(s_time_layer, "00:00");
-  
-  // Create battery TextLayer
-  s_battery_layer = text_layer_create(GRect(22, 63, 50, 17));
-  text_layer_set_background_color(s_battery_layer, GColorClear);
-  text_layer_set_text_color(s_battery_layer, GColorBlack);
-  text_layer_set_text(s_battery_layer, "100%");
 
   // Create date TextLayer
-  s_date_layer = text_layer_create(GRect(73, 63, 50, 17));
+  s_date_layer = text_layer_create(GRect(0, 63, 144, 17));
   text_layer_set_background_color(s_date_layer, GColorClear);
   text_layer_set_text_color(s_date_layer, GColorBlack);
   text_layer_set_text(s_date_layer, "Sat 01");
@@ -251,13 +236,9 @@ static void main_window_load(Window *window) {
   
   //Date
   text_layer_set_font(s_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
-  text_layer_set_text_alignment(s_date_layer, GTextAlignmentRight);
+  text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
   
-  //Battery
-  text_layer_set_font(s_battery_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
-  text_layer_set_text_alignment(s_battery_layer, GTextAlignmentLeft);
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_battery_layer));
 
   //Draw line under time
   s_line_layer = layer_create(GRect(20,59,108,4));
@@ -292,7 +273,6 @@ static void main_window_unload(Window *window) {
   text_layer_destroy(s_time_layer);
   text_layer_destroy(s_city_layer);
   text_layer_destroy(s_date_layer);
-  text_layer_destroy(s_battery_layer);  
   layer_destroy(s_line_layer);
   inverter_layer_destroy(s_night_layer);
 }

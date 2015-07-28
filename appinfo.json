@@ -12,6 +12,16 @@
     "resources": {
         "media": [
             {
+                "file": "images/washington.png",
+                "name": "WASHINGTON_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/pisa.png",
+                "name": "PISA_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "characterRegex": "[0-9:]",
                 "file": "fonts/ds-digital.ttf",
                 "name": "FONT_DS_DIGITAL_54",
@@ -28,11 +38,6 @@
                 "type": "png"
             },
             {
-                "file": "images/pisa.png",
-                "name": "PISA_BACKGROUND",
-                "type": "png"
-            },
-            {
                 "file": "images/brussels.png",
                 "name": "BRUSSELS_BACKGROUND",
                 "type": "png"
@@ -40,11 +45,6 @@
             {
                 "file": "images/athens.png",
                 "name": "ATHENS_BACKGROUND",
-                "type": "png"
-            },
-            {
-                "file": "images/washington.png",
-                "name": "WASHINGTON_BACKGROUND",
                 "type": "png"
             },
             {
@@ -187,12 +187,6 @@
                 "characterRegex": "[a-z]",
                 "file": "fonts/typeone.ttf",
                 "name": "FONT_TYPEONE_SQUARE_12",
-                "type": "font"
-            },
-            {
-                "characterRegex": "[0-9:.]",
-                "file": "fonts/pocket_calcuatlor_tt.ttf",
-                "name": "FONT_POCKET_CALCULATOR_SIZE_54",
                 "type": "font"
             }
         ]
