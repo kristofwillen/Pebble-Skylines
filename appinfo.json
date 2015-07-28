@@ -12,6 +12,12 @@
     "resources": {
         "media": [
             {
+                "characterRegex": "[0-9:]",
+                "file": "fonts/ds-digital.ttf",
+                "name": "FONT_DS_DIGITAL_54",
+                "type": "font"
+            },
+            {
                 "file": "images/atlantis.png",
                 "name": "ATLANTIS_BACKGROUND",
                 "type": "png"
@@ -195,7 +201,7 @@
     "shortName": "Skylines",
     "uuid": "32e36200-f9f4-44fd-8d4c-ccc347b67ef1",
     "versionCode": 1,
-    "versionLabel": "3.6",
+    "versionLabel": "3.7",
     "watchapp": {
         "watchface": true
     }
