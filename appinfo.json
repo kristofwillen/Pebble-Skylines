@@ -12,18 +12,18 @@
     "resources": {
         "media": [
             {
-                "file": "fonts/larabiefont free.ttf",
-                "name": "FONT_LARABIE_12",
+                "file": "images/pisa.png",
+                "name": "PISA_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "fonts/pirulen.ttf",
+                "name": "FONT_PIRULEN_12",
                 "type": "font"
             },
             {
                 "file": "images/washington.png",
                 "name": "WASHINGTON_BACKGROUND",
-                "type": "png"
-            },
-            {
-                "file": "images/pisa.png",
-                "name": "PISA_BACKGROUND",
                 "type": "png"
             },
             {

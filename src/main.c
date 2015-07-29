@@ -198,11 +198,16 @@ static void main_window_load(Window *window) {
   s_background_bitmap = gbitmap_create_with_resource(backgr_res);
   
   // Create time TextLayer
-  s_time_layer = text_layer_create(GRect(5, 0, 139, 55));
+  s_time_layer = text_layer_create(GRect(0, 0, 144, 55));
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorBlack);
   text_layer_set_text(s_time_layer, "00:00");
 
+  //Draw line under time
+  s_line_layer = layer_create(GRect(20,59,108,4));
+  layer_set_update_proc(s_line_layer,drawtimeline);
+  layer_add_child(window_get_root_layer(window), s_line_layer);
+  
   // Create date TextLayer
   s_date_layer = text_layer_create(GRect(0, 63, 144, 17));
   text_layer_set_background_color(s_date_layer, GColorClear);
@@ -221,33 +226,26 @@ static void main_window_load(Window *window) {
   text_layer_set_text(s_city_layer, citystr);
     
   //Time
-  //s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_POCKET_CALCULATOR_SIZE_54));
   s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_DS_DIGITAL_54));
   text_layer_set_font(s_time_layer, s_time_font);
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
   
   //City
-  s_city_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_LARABIE_12));
+  s_city_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_PIRULEN_12));
   //text_layer_set_font(s_city_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
   text_layer_set_font(s_city_layer, s_city_font);
   text_layer_set_text_alignment(s_city_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_city_layer));
   
   //Date
-  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_LARABIE_12));
+  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_PIRULEN_12));
   text_layer_set_font(s_date_layer, s_date_font);
   //text_layer_set_font(s_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
   
-
-  //Draw line under time
-  s_line_layer = layer_create(GRect(20,59,108,4));
-  layer_set_update_proc(s_line_layer,drawtimeline);
-  layer_add_child(window_get_root_layer(window), s_line_layer);
-
-  
+ 
   // Nightlayer
   s_star_layer = bitmap_layer_create(GRect(0,0,144,120));
   s_star_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BACKGROUND_NIGHT_STARS);
@@ -271,7 +269,9 @@ static void main_window_load(Window *window) {
 static void main_window_unload(Window *window) {
   fonts_unload_custom_font(s_time_font);
   gbitmap_destroy(s_background_bitmap);
+  gbitmap_destroy(s_star_bitmap);
   bitmap_layer_destroy(s_background_layer);
+  bitmap_layer_destroy(s_star_layer);
   text_layer_destroy(s_time_layer);
   text_layer_destroy(s_city_layer);
   text_layer_destroy(s_date_layer);
