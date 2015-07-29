@@ -12,6 +12,11 @@
     "resources": {
         "media": [
             {
+                "file": "images/dubai.png",
+                "name": "DUBAI_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "file": "images/pisa.png",
                 "name": "PISA_BACKGROUND",
                 "type": "png"
@@ -35,11 +40,6 @@
             {
                 "file": "images/atlantis.png",
                 "name": "ATLANTIS_BACKGROUND",
-                "type": "png"
-            },
-            {
-                "file": "images/dubai.png",
-                "name": "DUBAI_BACKGROUND",
                 "type": "png"
             },
             {
@@ -194,7 +194,7 @@
     "shortName": "Skylines",
     "uuid": "32e36200-f9f4-44fd-8d4c-ccc347b67ef1",
     "versionCode": 1,
-    "versionLabel": "4.0",
+    "versionLabel": "4.1",
     "watchapp": {
         "watchface": true
     }
