@@ -43,7 +43,7 @@ static void battery_handler(BatteryChargeState new_state) {
 void drawtimeline(Layer *layer, GContext *ctx) {
   
   graphics_context_set_stroke_color(ctx, GColorBlack);
-  graphics_draw_line(ctx, GPoint(0,0), GPoint(108,0));
+  graphics_draw_line(ctx, GPoint(0,0), GPoint(100,0));
   graphics_context_set_fill_color(ctx, GColorBlack);
   graphics_fill_rect(ctx, GRect(0,1,batteryLevel,4), 0, GCornerNone);
 }
@@ -204,7 +204,7 @@ static void main_window_load(Window *window) {
   text_layer_set_text(s_time_layer, "00:00");
 
   //Draw line under time
-  s_line_layer = layer_create(GRect(20,59,108,4));
+  s_line_layer = layer_create(GRect(22,59,100,4));
   layer_set_update_proc(s_line_layer,drawtimeline);
   layer_add_child(window_get_root_layer(window), s_line_layer);
   
