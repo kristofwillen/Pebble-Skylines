@@ -18,11 +18,11 @@ static char s_date_buffer[10];
 char citystr[] = "_SAN_FRANCISCO_";
 static int backgr_res;
 
-const int NBR_OF_CITIES = 31;
-char *citylist[31] = {"Athens", "Atlantis",
+const int NBR_OF_CITIES = 32;
+char *citylist[32] = {"Athens", "Atlantis",
                       "Barcelona", "Berlin", "Boston", "Brussels", "Budapest", 
                       "Cairo", "Chicago", 
-                      "Dallas", "Delhi", "Dublin", "Dubai",
+                      "Dallas", "Delhi", "Dresden", "Dublin", "Dubai",
                       "Istanbul", 
                       "Kiev", "Kyoto", 
                       "London", 
@@ -80,7 +80,8 @@ static int resource_background(char citystring[]) {
   else if (strcmp(citystr, "Budapest")      == 0) { return RESOURCE_ID_BUDAPEST_BACKGROUND;  } 
   else if (strcmp(citystr, "Washington")    == 0) { return RESOURCE_ID_WASHINGTON_BACKGROUND;}  
   else if (strcmp(citystr, "Dubai")         == 0) { return RESOURCE_ID_DUBAI_BACKGROUND;     }  
-  else if (strcmp(citystr, "Atlantis")      == 0) { return RESOURCE_ID_ATLANTIS_BACKGROUND;  }    
+  else if (strcmp(citystr, "Atlantis")      == 0) { return RESOURCE_ID_ATLANTIS_BACKGROUND;  }
+  else if (strcmp(citystr, "Dresden")       == 0) { return RESOURCE_ID_DRESDEN_BACKGROUND;   }
   else {
     // fallback config if invalid KEY_CITY config
     strcpy(citystr,"Prague");
@@ -120,7 +121,6 @@ static void update_time() {
       layer_set_hidden((Layer *)s_star_layer, true); 
     }
   }
-  
   
   // Random, change every 2 hours
   if (RandomFlag) {
